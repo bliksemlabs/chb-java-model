@@ -42,8 +42,9 @@
     <properties>
         <kv4RepoName>KV4</kv4RepoName>
         <kv4Branch>master</kv4Branch>
-        <kv4GithubUrl>https://github.com/BISSONL/${kv4RepoName}</kv4GithubUrl>
+        <kv4GithubUrl>https://github.com/BISONNL/${kv4RepoName}</kv4GithubUrl>
         <kv4Version>8.1.0.2</kv4Version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <assertj.core.version>3.4.1</assertj.core.version>
         <junit.version>4.12</junit.version>
         <jaxb.fluent.api.version>2.1.8</jaxb.fluent.api.version>
@@ -143,11 +144,11 @@
                         <configuration>
                             <environmentVariables>
                                 <BISON_REPO>${kv4RepoName}</BISON_REPO>
-                                <GIT_BRANCH>${kv4Branch}</GIT_BRANCH>
+                                <GIT_BRANCH>${kv4Version}</GIT_BRANCH>
                                 <GITHUB_URL>${kv4GithubUrl}</GITHUB_URL>
                                 <DESTINATION_PATH>src/main/resources/xsd/${kv4Version}</DESTINATION_PATH>
                             </environmentVariables>
-                            <executable>./bin/kv4-download-extract.sh</executable>
+                            <executable>./bin/download-extract.sh</executable>
                         </configuration>
                     </execution>
 					<!--
@@ -189,7 +190,7 @@
                 <configuration>
                     <extensions>
                         <extension>net.java.dev.jaxb2-commons:jaxb-fluent-api:${jaxb.fluent.api.version}</extension>
-                        <extension>org.apache.cxf.xjcplugins:cxf-xjc-ts:${cxf-xjc.version}</extension>
+						<extension>org.apache.cxf.xjcplugins:cxf-xjc-ts:${cxf-xjc.version}</extension>
                     </extensions>
                 </configuration>
                 <executions>
