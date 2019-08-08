@@ -5,7 +5,7 @@
 
 	<jxb:bindings>
 		<jxb:globalBindings underscoreBinding="asCharInWord">
-			<xjc:javaType name="java.time.LocalDateTime" xmlType="xs:dateTime" adapter="org.rutebanken.util.LocalDateTimeISO8601XmlAdapter" />
+			<xjc:javaType name="java.time.ZonedDateTime" xmlType="xs:dateTime" adapter="org.rutebanken.util.ZonedDateTimeISO8601XmlAdapter" />
 			<xjc:javaType name="java.time.LocalTime" xmlType="xs:time" adapter="org.rutebanken.util.LocalTimeISO8601XmlAdapter" />
 			<xjc:javaType name="java.time.LocalDateTime" xmlType="xs:date" adapter="org.rutebanken.util.LocalDateXmlAdapter" />
 			<xjc:javaType name="java.time.Duration" xmlType="xs:duration" adapter="com.migesok.jaxb.adapter.javatime.DurationXmlAdapter" />
@@ -14,9 +14,9 @@
 
 	<!-- See the script bin/version_updater.sh It updates version in schema locations-->
 
-	<jxb:bindings schemaLocation="./src/main/resources/xsd/8.1.0.2/kv4-msg.xsd">
+	<jxb:bindings schemaLocation="./src/main/resources/xsd/8.3.1.0/chb-msg.xsd">
 		<jxb:schemaBindings>
-			<jxb:package name="nl.connekt.bison.kv4" />
+			<jxb:package name="nl.connekt.bison.chb" />
 		</jxb:schemaBindings>
 	</jxb:bindings>
 

@@ -16,12 +16,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>nl.connekt.bison</groupId>
-    <artifactId>kv4-java-model</artifactId>
+    <artifactId>chb-java-model</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>kv4-java-model</name>
-    <description>Generates Java model from KV4 xsds using jaxb.</description>
-    <url>https://github.com/bliksemlabs/kv4-java-model</url>
+    <name>chb-java-model</name>
+    <description>Generates Java model from CHB xsds using jaxb.</description>
+    <url>https://github.com/bliksemlabs/chb-java-model</url>
     <licenses>
         <license>
             <name>EUPL-1.2 with modifications</name>
@@ -40,10 +40,10 @@
     </developers>
 
     <properties>
-        <kv4RepoName>KV4</kv4RepoName>
-        <kv4Branch>master</kv4Branch>
-        <kv4GithubUrl>https://github.com/BISONNL/${kv4RepoName}</kv4GithubUrl>
-        <kv4Version>8.1.0.2</kv4Version>
+        <chbRepoName>CHB</chbRepoName>
+        <chbBranch>master</chbBranch>
+        <chbGithubUrl>https://github.com/BISONNL/${chbRepoName}</chbGithubUrl>
+        <chbVersion>8.3.1.0</chbVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <assertj.core.version>3.4.1</assertj.core.version>
         <junit.version>4.12</junit.version>
@@ -58,9 +58,9 @@
     </properties>
 
     <scm>
-        <connection>scm:git:ssh://git@github.com/bliksemlabs/kv4-java-model.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/bliksemlabs/kv4-java-model.git</developerConnection>
-        <url>https://github.com/bliksemlabs/kv4-java-model/tree/master</url>
+        <connection>scm:git:ssh://git@github.com/bliksemlabs/chb-java-model.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/bliksemlabs/chb-java-model.git</developerConnection>
+        <url>https://github.com/bliksemlabs/chb-java-model/tree/master</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -143,10 +143,10 @@
                         </goals>
                         <configuration>
                             <environmentVariables>
-                                <BISON_REPO>${kv4RepoName}</BISON_REPO>
-                                <GIT_BRANCH>${kv4Version}</GIT_BRANCH>
-                                <GITHUB_URL>${kv4GithubUrl}</GITHUB_URL>
-                                <DESTINATION_PATH>src/main/resources/xsd/${kv4Version}</DESTINATION_PATH>
+                                <BISON_REPO>${chbRepoName}</BISON_REPO>
+                                <GIT_BRANCH>${chbVersion}</GIT_BRANCH>
+                                <GITHUB_URL>${chbGithubUrl}</GITHUB_URL>
+                                <DESTINATION_PATH>src/main/resources/xsd/${chbVersion}</DESTINATION_PATH>
                             </environmentVariables>
                             <executable>./bin/download-extract.sh</executable>
                         </configuration>
@@ -160,7 +160,7 @@
                         </goals>
                         <configuration>
                             <arguments>
-                                <argument>${kv4Version}</argument>
+                                <argument>${chbVersion}</argument>
                             </arguments>
                             <executable>
                                 ./bin/version_updater.sh
@@ -176,7 +176,7 @@
                         </goals>
                         <configuration>
                             <arguments>
-                                <argument>${kv4Version}</argument>
+                                <argument>${chbVersion}</argument>
                             </arguments>
                             <executable>./bin/annotation-replacer.sh</executable>
                         </configuration>
@@ -195,7 +195,7 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <id>generate-sources-for-kv4</id>
+                        <id>generate-sources-for-chb</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>xsdtojava</goal>
@@ -204,7 +204,7 @@
                             <xsdOptions>
                                 <xsdOption>
                                     <xsd>
-                                        ${basedir}/src/main/resources/xsd/${kv4Version}/kv4-msg.xsd
+                                        ${basedir}/src/main/resources/xsd/${chbVersion}/chb-msg.xsd
                                     </xsd>
                                     <extension>true</extension>
                                     <bindingFile>bindings.xjb</bindingFile>
